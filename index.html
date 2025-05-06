@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="C:\Users\landc\CS\FWS\style.css" />
+
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="title">
+      <h1>suspended healing garden</h1>
+      <button type="button" onclick="titleFade()" id="introbutton">
+        enter
+      </button>
+    </div>
+
+    <div id="content" class="hidden">
+      <div id="image">
+        <img id="previewimg" src="https://panteakarimi.com/wp-content/uploads/2018/02/Suspended-Healing-Garden-2019-PKarimi-aa.jpg" alt="Garden Image" />
+      </div>
+      <!-- add subtitles to images -->
+
+      <div id="gardendescription">
+        <button
+          class="pagebutton"
+          id="artwork"
+          onmouseover="changeImage('artwork')"
+          onmouseout="resetImage()"
+          onclick="location.href='artwork.html'"
+        >
+          artwork
+        </button>
+        <button
+          class="pagebutton"
+          id="context"
+          onmouseover="changeImage('context')"
+          onmouseout="resetImage()"
+          onclick="location.href='context.html'"
+        >
+          context
+        </button>
+        <button
+          class="pagebutton"
+          id="symbolism"
+          onmouseover="changeImage('symbolism')"
+          onmouseout="resetImage()"
+          onclick="location.href='symbolism.html'"
+        >
+          symbolism
+        </button>
+        <button
+          class="pagebutton"
+          id="extra"
+          onmouseover="changeImage('extra')"
+          onmouseout="resetImage()"
+          onclick="location.href='extra.html'"
+        >
+          extras
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

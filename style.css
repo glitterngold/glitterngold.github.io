@@ -1,0 +1,347 @@
+/* Importing font */
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+
+/* Global styles */
+html, body {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: "Red Hat Text";
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/fs/ce7f1280308069.5cdd4a0b0d8ee.jpg);
+  background-size: cover;
+}
+
+/* General element styles */
+div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-content: space-around;
+  row-gap: 90px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 200px;
+  margin: 0 auto;
+  line-height: 1.1;
+  color: rgb(255, 234, 114);
+}
+
+p {
+  font-weight: 300 700;
+  font-size: 30px;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  align-content: center;
+}
+
+.slideshowTextBox p {
+  text-indent: 0px
+}
+
+/* Title section */
+#title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 100%;
+  min-width: 100%;
+  align-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#title.fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Button styles */
+#introbutton {
+  padding: 3px;
+  background-color: transparent;
+  font-weight: 300 700;
+  font-size: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  color: rgb(255, 234, 114);
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box; /* Ensures padding and border are included in size */
+  border-style: none;
+}
+
+#introbutton::before {
+  content: "";
+  position: absolute;
+  top: -3px; /* Align with the border */
+  left: -3px; /* Align with the border */
+  width: calc(100% + 6px); /* Account for the border width */
+  height: calc(100% + 6px); /* Account for the border width */
+  border: 3px solid rgb(255, 234, 114);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  transform: scale(1);
+  box-sizing: border-box;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+#introbutton:hover::before {
+  transform: scale(1.1);
+}
+
+#introbutton:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 10px; /* Match the button's border-radius */
+  top: 0; /* Align with the top of the button */
+  left: 0; /* Align with the left of the button */
+  width: 100%; /* Match the button's width */
+  height: 100%; /* Match the button's height */
+  opacity: 0;
+  transition: all 1s, transform 0.3s ease; /* Add transform transition */
+  box-shadow: 0 0 10px 40px rgb(255, 234, 114);
+  box-sizing: border-box; /* Ensure dimensions include padding and border */
+}
+
+#introbutton:hover:after {
+  transform: scale(1.1); /* Match the hover effect of the button */
+  opacity: 0; /* Make the effect visible */
+}
+
+#introbutton:active:after {
+  box-shadow: 0 0 0 0 rgb(255, 234, 114);
+  opacity: 1;
+  transition: 0s;
+}
+
+#introbutton:active {
+  top: 1px;
+}
+
+/* Content section */
+#content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: rgba(255, 228, 196, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#content.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .5s ease;
+}
+
+#content.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#image {
+  flex: 1;
+  width: 45%;
+  height: 896px;
+  max-width: 45%;
+  background-color: rgba(211, 211, 211, 0);
+  border: 2px solid rgb(255, 234, 114);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Position relative for button placement */
+  overflow: hidden; /* Ensure images don't overflow the container */
+  border-radius: 10px;
+}
+
+#image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.prevButton,
+.nextButton {
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none; 
+  padding: 10px 167px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10;
+  border-top: 2px solid rgb(255, 234, 114);
+}
+
+.prevButton {
+  left: 0px; /* Position the "Previous" button on the left */
+  border-right: 2px solid rgb(255, 234, 114);
+}
+
+.nextButton {
+  right: 0px; /* Position the "Next" button on the right */
+  border-left: 2px solid rgb(255, 234, 114);
+}
+
+.prevButton:hover,
+.nextButton:hover {
+  background-color: rgba(255, 234, 114, 0.8);
+  color: black;
+}
+
+#gardendescription {
+  flex: 1;
+  width: 45%;
+  height: 900px;
+  max-width: 45%;
+  background-color: rgba(0, 0, 0, 0.65);
+  text-align: center;
+  border: 2px solid rgb(255, 234, 114);
+  border-radius: 10px;
+  padding: 0; /* Remove padding to make buttons fit perfectly */
+  overflow: hidden; /* Prevent overflow */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 0; /* Ensure no gaps between flex items */
+  box-sizing: border-box; /* Include borders in the dimensions */
+  position: relative;
+}
+
+#citationBox {
+  width: 80%; /* Adjust width as needed */
+  height: 80vh; /* Set height to 80% of the viewport height */
+  margin: auto; /* Center the box horizontally */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  border: 2px solid rgb(255, 234, 114);
+  border-radius: 10px;
+  color: white; /* Text color */
+  padding: 20px; /* Add padding for inner spacing */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a shadow for better visibility */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  text-align: left; /* Align text to the left */
+  font-size: 16px; /* Adjust font size for readability */
+  line-height: 1.5; /* Improve line spacing */
+  text-align: center; /* Center text horizontally */
+}
+
+.pagebutton {
+  flex: 1; /* Make each button take up equal vertical space */
+  width: 100%; /* Ensure buttons span the full width */
+  background-color: rgba(255, 234, 114, 0); /* Transparent background by default */
+  border: none; /* Remove default borders */
+  color: rgb(255, 234, 114); /* Default text color */
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-size: 100px; /* Adjust font size */
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0; /* Remove any default margins */
+  padding: 0; /* Remove padding to eliminate gaps */
+  box-sizing: border-box; /* Include borders in the button size */
+}
+
+.pagebutton:hover {
+  background-color: rgba(255, 234, 114, 1); /* Highlight background on hover */
+  color: rgb(0, 0, 0); /* Change text color on hover */
+}
+
+.pagebutton:active {
+  background-color: rgba(200, 200, 50, 1); /* Darker background when active */
+}
+
+#artwork {
+  border-bottom: 2px solid rgb(255, 234, 114); /* Add a border to separate buttons */
+}
+
+#context {
+  border-top: 2px solid rgb(255, 234, 114); /* Add a border to separate buttons */
+  border-bottom: 2px solid rgb(255, 234, 114); /* Add a border to separate buttons */
+}
+
+#symbolism {
+  border-top: 2px solid rgb(255, 234, 114); /* Add a border to separate buttons */
+  border-bottom: 2px solid rgb(255, 234, 114); /* Add a border to separate buttons */
+}
+
+#extra {
+  border-top: 2px solid rgb(255, 234, 114); /* Add a border to separate buttons */
+}
+
+#homeButton {
+  position: absolute; /* Position the button relative to its parent */
+  bottom: 0px; /* Align the button to the bottom of the parent div */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none; /* Remove any default borders */
+  border-top: 2px solid rgb(255, 234, 114);
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10;
+  padding: 10px 167px; /* Match the padding of prev/next buttons */
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%; /* Make the button span the full width of the parent div */
+}
+
+#homeButton:hover {
+  background-color: rgba(255, 234, 114, 0.8); /* Highlight background on hover */
+  color: black; /* Change text color on hover */
+}
+
+.slideshowTextBox {
+  position: absolute;
+  bottom: 60px; /* Position above the navigation buttons */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Adjust width as needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 5; /* Ensure it appears above the image but below buttons */
+}
+
+.slideshowTextBox p {
+  margin: 0; /* Remove default margin */
+}
+
+a {
+  color: rgb(255, 234, 114);
+}
